@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
-import SignIn from "./Pages/Signin";
+import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
 import Dashboard from "./Pages/Dashboard";
 import Projects from "./Pages/Projects";
 
-export default function app() {
+export default function App() {
   return (
     <>
       <Routes>
@@ -15,7 +15,7 @@ export default function app() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="projects" element={<Projectscts />} />
+        <Route path="projects" element={<Projects />} />
       </Routes>
     </>
   );
