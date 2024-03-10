@@ -1,5 +1,5 @@
-export default function App() {
+export default function app() {
   return (
-    <div>App</div>
+    <h1>app</h1>
   )
 }
