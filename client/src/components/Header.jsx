@@ -38,6 +38,9 @@ export default function Header() {
           </Button>
         </NavLink>
       </div>
+      <Navbar.Collapse>
+        
+      </Navbar.Collapse>
     </Navbar>
   );
 }
