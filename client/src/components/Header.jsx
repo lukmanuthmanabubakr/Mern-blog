@@ -33,14 +33,20 @@ export default function Header() {
           <FaMoon />
         </Button>
         <NavLink to="/sign-in">
-          <Button gradientDuoTone="purpleToBlue">
-            Sign In
-          </Button>
+          <Button gradientDuoTone="purpleToBlue">Sign In</Button>
         </NavLink>
       </div>
-      <Navbar.Collapse>
-        
-      </Navbar.Collapse>
+        <Navbar.Collapse>
+          <Navbar.Link>
+            <NavLink to="/">Home</NavLink>
+          </Navbar.Link>
+          <Navbar.Link>
+            <NavLink to="/about">About</NavLink>
+          </Navbar.Link>
+          <Navbar.Link>
+            <NavLink to="/projects">Projects</NavLink>
+          </Navbar.Link>
+        </Navbar.Collapse>
     </Navbar>
   );
 }
