@@ -4,6 +4,7 @@ import { RiSearchLine } from "react-icons/ri";
 import { FaMoon } from "react-icons/fa";
 
 export default function Header() {
+  const path = useLocation().pathname;
   return (
     <Navbar className="border-b-2">
       <NavLink
@@ -39,13 +40,13 @@ export default function Header() {
         <Navbar.Toggle />
       </div>
         <Navbar.Collapse>
-          <Navbar.Link>
+          <Navbar.Link active={path === "/"} as={'div'}>
             <NavLink to="/">Home</NavLink>
           </Navbar.Link>
-          <Navbar.Link>
+          <Navbar.Link active={path === "/about"} as={'div'}>
             <NavLink to="/about">About</NavLink>
           </Navbar.Link>
-          <Navbar.Link>
+          <Navbar.Link active={path === "/projects"} as={'div'}>
             <NavLink to="/projects">Projects</NavLink>
           </Navbar.Link>
         </Navbar.Collapse>
