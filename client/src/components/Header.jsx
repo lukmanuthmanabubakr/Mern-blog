@@ -1,4 +1,4 @@
-import { Navbar } from 'flowbite-react'
+import { Navbar, TextInput } from 'flowbite-react'
 import { NavLink } from 'react-router-dom'
 
 export default function Header() {
@@ -9,7 +9,7 @@ export default function Header() {
           Blog
       </NavLink>
       <form>
-        
+        <TextInput />
       </form>
     </Navbar>
   )
