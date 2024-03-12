@@ -1,5 +1,5 @@
 import { Button, Navbar, TextInput } from "flowbite-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { RiSearchLine } from "react-icons/ri";
 import { FaMoon } from "react-icons/fa";
 
@@ -35,6 +35,8 @@ export default function Header() {
         <NavLink to="/sign-in">
           <Button gradientDuoTone="purpleToBlue">Sign In</Button>
         </NavLink>
+
+        <Navbar.Toggle />
       </div>
         <Navbar.Collapse>
           <Navbar.Link>
