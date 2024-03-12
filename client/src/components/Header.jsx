@@ -1,5 +1,7 @@
+import { Navbar } from 'flowbite-react'
+
 export default function Header() {
   return (
-    <div>Header</div>
+    <Navbar className='border-b-2'>Header</Navbar>
   )
 }
