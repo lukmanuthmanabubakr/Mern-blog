@@ -1,4 +1,4 @@
-import { Navbar, TextInput } from "flowbite-react";
+import { Button, Navbar, TextInput } from "flowbite-react";
 import { NavLink } from "react-router-dom";
 import { RiSearchLine } from "react-icons/ri";
 
@@ -19,8 +19,13 @@ export default function Header() {
           type="text"
           placeholder="Search..."
           rightIcon={RiSearchLine}
+          className="hidden lg:inline"
         />
       </form>
+
+      <Button className="w-12 h-10" color="gray">
+        <RiSearchLine />
+      </Button>
     </Navbar>
   );
 }
