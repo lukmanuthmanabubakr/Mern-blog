@@ -28,10 +28,15 @@ export default function Header() {
         <RiSearchLine />
       </Button>
 
-      <div>
+      <div className="flex gap-2 md:order-2">
         <Button className="w-12 h-10 hidden sm:inline" color="gray" pill>
           <FaMoon />
         </Button>
+        <NavLink to="/sign-in">
+          <Button gradientDuoTone="purpleToBlue">
+            Sign In
+          </Button>
+        </NavLink>
       </div>
     </Navbar>
   );
