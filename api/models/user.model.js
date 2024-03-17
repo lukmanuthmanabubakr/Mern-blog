@@ -20,4 +20,5 @@ const userSchema = new mongoose.Schema({
     type: "string",
     required: [true, "Please Input A Strong Password"],
   }
-});
+}, {timestamps: true}
+);
