@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export default function SignUp() {
   return (
     <div className="min-h-screen mt-20">
-      <div className="flex p-3 max-w-3xl">
+      <div className="flex p-3 max-w-3xl mx-auto">
         {/* Left Side */}
         <div className="">
           <NavLink to="/" className="font-bold dark:text-white text-4xl">
