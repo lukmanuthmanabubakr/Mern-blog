@@ -17,7 +17,16 @@ export default function SignUp() {
           </p>
         </div>
         {/* right Side */}
-        <div className=""></div>
+
+        <div className="">
+          <form>
+            <div className="">
+              <label>
+                
+              </label>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
