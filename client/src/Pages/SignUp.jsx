@@ -12,7 +12,7 @@ export default function SignUp() {
             </span>
             Blog
           </NavLink>
-          <p>
+          <p className="text-sm mt-5">
             This is a demo project, You can sign up with ur email and password Or with Your Google Account
           </p>
         </div>
