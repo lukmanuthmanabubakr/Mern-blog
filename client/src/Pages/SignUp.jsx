@@ -6,7 +6,7 @@ export default function SignUp() {
         <div className="">
 
         </div>
-        {/* Left Side */}
+        {/* right Side */}
         <div className="">
 
         </div>
