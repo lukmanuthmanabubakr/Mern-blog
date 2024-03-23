@@ -41,7 +41,8 @@ export default function SignUp() {
           </form>
 
           <div className="">
-            <span></span>
+            <span>Have an account?</span>
+            <NavLink></NavLink>
           </div>
         </div>
       </div>
