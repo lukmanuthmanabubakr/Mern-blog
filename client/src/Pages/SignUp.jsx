@@ -1,4 +1,4 @@
-import { Label } from "flowbite-react";
+import { Label, TextInput } from "flowbite-react";
 import { NavLink } from "react-router-dom";
 
 export default function SignUp() {
@@ -14,7 +14,8 @@ export default function SignUp() {
             Blog
           </NavLink>
           <p className="text-sm mt-5">
-            This is a demo project, You can sign up with ur email and password Or with Your Google Account
+            This is a demo project, You can sign up with ur email and password
+            Or with Your Google Account
           </p>
         </div>
         {/* right Side */}
@@ -23,6 +24,7 @@ export default function SignUp() {
           <form>
             <div className="">
               <Label value="Your username" />
+              <TextInput type="text" placeholder="Username" id="username" />
             </div>
           </form>
         </div>
