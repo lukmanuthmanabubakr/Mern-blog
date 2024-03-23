@@ -22,8 +22,16 @@ export default function SignUp() {
 
         <div className="">
           <form>
-            <div className="">
+            <div>
               <Label value="Your username" />
+              <TextInput type="text" placeholder="Username" id="username" />
+            </div>
+            <div>
+              <Label value="Your email" />
+              <TextInput type="text" placeholder="Username" id="username" />
+            </div>
+            <div>
+              <Label value="Your password" />
               <TextInput type="text" placeholder="Username" id="username" />
             </div>
           </form>
