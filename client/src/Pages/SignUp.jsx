@@ -1,10 +1,10 @@
-import { Label, TextInput } from "flowbite-react";
+import { Button, Label, TextInput } from "flowbite-react";
 import { NavLink } from "react-router-dom";
 
 export default function SignUp() {
   return (
     <div className="min-h-screen mt-20">
-      <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center">
+      <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
         {/* Left Side */}
         <div className="flex-1">
           <NavLink to="/" className="font-bold dark:text-white text-4xl">
@@ -34,6 +34,10 @@ export default function SignUp() {
               <Label value="Your password" />
               <TextInput type="text" placeholder="Password" id="password" />
             </div>
+
+            <Button gradientDuoTone='purpleToPink' type="submit">
+              Sign Up
+            </Button>
           </form>
         </div>
       </div>
