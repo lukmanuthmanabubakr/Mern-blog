@@ -35,10 +35,14 @@ export default function SignUp() {
               <TextInput type="text" placeholder="Password" id="password" />
             </div>
 
-            <Button gradientDuoTone='purpleToPink' type="submit">
+            <Button gradientDuoTone="purpleToPink" type="submit">
               Sign Up
             </Button>
           </form>
+
+          <div className="">
+            <span></span>
+          </div>
         </div>
       </div>
     </div>
