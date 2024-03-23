@@ -28,7 +28,7 @@ export default function SignUp() {
             </div>
             <div>
               <Label value="Your email" />
-              <TextInput type="email" placeholder="Email" id="email" />
+              <TextInput type="email" placeholder="name@company.com" id="email" />
             </div>
             <div>
               <Label value="Your password" />
@@ -40,9 +40,11 @@ export default function SignUp() {
             </Button>
           </form>
 
-          <div className="">
+          <div className="flex gap-2 text-sm mt-5">
             <span>Have an account?</span>
-            <NavLink></NavLink>
+            <NavLink to="/sign-in" className="text-blue-500">
+              Sign In
+            </NavLink>
           </div>
         </div>
       </div>
