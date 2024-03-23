@@ -21,18 +21,18 @@ export default function SignUp() {
         {/* right Side */}
 
         <div className="">
-          <form>
+          <form className="flex flex-col gap-4">
             <div>
               <Label value="Your username" />
               <TextInput type="text" placeholder="Username" id="username" />
             </div>
             <div>
               <Label value="Your email" />
-              <TextInput type="email" placeholder="Email" id="username" />
+              <TextInput type="email" placeholder="Email" id="email" />
             </div>
             <div>
               <Label value="Your password" />
-              <TextInput type="text" placeholder="Username" id="username" />
+              <TextInput type="text" placeholder="Password" id="password" />
             </div>
           </form>
         </div>
