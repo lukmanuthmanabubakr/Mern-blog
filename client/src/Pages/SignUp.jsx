@@ -36,7 +36,7 @@ export default function SignUp() {
             </div>
             <div>
               <Label value="Your password" />
-              <TextInput type="text" placeholder="Password" id="password" />
+              <TextInput type="password" placeholder="Password" id="password" />
             </div>
 
             <Button gradientDuoTone="purpleToPink" type="submit">
