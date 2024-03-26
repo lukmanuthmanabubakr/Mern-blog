@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value})
     // console.log(e.target.value);
@@ -18,9 +19,7 @@ export default function SignUp() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-    } catch (error) {
-      
-    }
+    } catch (error) {}
   }
   return (
     <div className="min-h-screen mt-20">
