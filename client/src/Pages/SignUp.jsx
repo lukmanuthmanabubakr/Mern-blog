@@ -22,7 +22,12 @@ export default function SignUp() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-    } catch (error) {}
+      if(data.success === false) {
+        return setErrorMessage(data.message)
+      } 
+    } catch (error) {
+      setErrorMessage(error.message)
+    }
   };
   return (
     <div className="min-h-screen mt-20">
