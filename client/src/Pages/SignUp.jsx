@@ -8,7 +8,7 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value})
-    // console.log(e.target.value);
+   
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
