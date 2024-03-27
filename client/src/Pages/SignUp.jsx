@@ -84,11 +84,11 @@ export default function SignUp() {
             </NavLink>
           </div>
           {
-            errorMessage && {
-              <Alert>
-                
+            errorMessage && (
+              <Alert className='mt-5' color='failure'>
+                {errorMessage}
               </Alert>
-            }
+            )
           }
         </div>
       </div>
