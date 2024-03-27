@@ -1,4 +1,4 @@
-import { Alert, Button, Label, TextInput } from "flowbite-react";
+import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -11,8 +11,8 @@ export default function SignUp() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(!formData.username || !formData.email || !formData.password){
-      return setErrorMessage('Please fill out all fields')
+    if (!formData.username || !formData.email || !formData.password) {
+      return setErrorMessage("Please fill out all fields");
     }
 
     try {
@@ -24,13 +24,13 @@ export default function SignUp() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-      if(data.success === false) {
-        return setErrorMessage(data.message)
-      } 
+      if (data.success === false) {
+        return setErrorMessage(data.message);
+      }
 
       setLoading(false);
     } catch (error) {
-      setErrorMessage(error.message)
+      setErrorMessage(error.message);
       setLoading(false);
     }
   };
@@ -82,8 +82,19 @@ export default function SignUp() {
               />
             </div>
 
-            <Button gradientDuoTone="purpleToPink" type="submit">
-              Sign Up
+            <Button
+              gradientDuoTone="purpleToPink"
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <Spinner size="sm" />
+                  <span className="pl-3">Loading...</span>
+                </>
+              ) : (
+                "Sign Up"
+              )}
             </Button>
           </form>
 
@@ -93,13 +104,11 @@ export default function SignUp() {
               Sign In
             </NavLink>
           </div>
-          {
-            errorMessage && (
-              <Alert className='mt-5' color='failure'>
-                {errorMessage}
-              </Alert>
-            )
-          }
+          {errorMessage && (
+            <Alert className="mt-5" color="failure">
+              {errorMessage}
+            </Alert>
+          )}
         </div>
       </div>
     </div>
