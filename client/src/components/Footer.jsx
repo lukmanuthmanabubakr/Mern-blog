@@ -1,7 +1,15 @@
-import {Footer} from 'flowbite-react'
+import { Footer } from "flowbite-react";
 
 export default function FooterCom() {
   return (
-    <Footer>Footer</Footer>
-  )
+    <Footer container className="border border-t-8 border-teal-500">
+      <div className="">
+        <div className="">
+          <div className="">
+
+          </div>
+        </div>
+      </div>
+    </Footer>
+  );
 }
