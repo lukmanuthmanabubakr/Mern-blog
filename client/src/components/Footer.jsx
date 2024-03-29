@@ -1,5 +1,7 @@
-export default function Footer() {
+import {Footer} from 'flowbite-react'
+
+export default function FooterCom() {
   return (
-    <div>Footer</div>
+    <Footer>Footer</Footer>
   )
 }
