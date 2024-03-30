@@ -37,6 +37,25 @@ export default function FooterCom() {
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
+            <div>
+              <Footer.Title title="Follow us" />
+              <Footer.LinkGroup col>
+                <Footer.Link
+                  href="https://react-quiz-app-ruddy-six.vercel.app/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Legends Projects
+                </Footer.Link>
+                <Footer.Link
+                  href="/about"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  About Us
+                </Footer.Link>
+              </Footer.LinkGroup>
+            </div>
           </div>
         </div>
       </div>
