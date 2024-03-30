@@ -41,18 +41,18 @@ export default function FooterCom() {
               <Footer.Title title="Follow us" />
               <Footer.LinkGroup col>
                 <Footer.Link
-                  href="https://react-quiz-app-ruddy-six.vercel.app/"
+                  href="https://github.com/lukmanuthmanabubakr"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  Legends Projects
+                  Github
                 </Footer.Link>
                 <Footer.Link
-                  href="/about"
+                  href="https://www.linkedin.com/in/abubakr-lukman-uthman-51156a263/"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  About Us
+                  LinkedIn
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
