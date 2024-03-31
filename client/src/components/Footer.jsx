@@ -76,7 +76,7 @@ export default function FooterCom() {
 
         <Footer.Divider />
         <div className="">
-          <Footer.Copyright />
+          <Footer.Copyright href="#" by="Legend's blog"/>
         </div>
       </div>
     </Footer>
