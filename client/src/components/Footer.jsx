@@ -76,7 +76,7 @@ export default function FooterCom() {
 
         <Footer.Divider />
         <div className="">
-          <Footer.Copyright href="#" by="Legend's blog"/>
+          <Footer.Copyright href="#" by="Legend's blog" year={new Date().getFullYear()}/>
         </div>
       </div>
     </Footer>
