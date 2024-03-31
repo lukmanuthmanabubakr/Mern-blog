@@ -75,6 +75,9 @@ export default function FooterCom() {
         </div>
 
         <Footer.Divider />
+        <div className="">
+          <Footer.Copyright />
+        </div>
       </div>
     </Footer>
   );
