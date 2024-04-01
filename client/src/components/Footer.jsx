@@ -74,14 +74,14 @@ export default function FooterCom() {
         </div>
 
         <Footer.Divider />
-        <div className="">
+        <div className="w-full sm:flex sm:items-center sm:justify-between" >
           <Footer.Copyright
             href="#"
             by="Legend's blog"
             year={new Date().getFullYear()}
           />
 
-          <div className="flex gap-6">
+          <div className="flex gap-6 sm:mt-0 mt-4 sm:justify-center">
             <Footer.Icon
               href="https://www.facebook.com/ola%20dimeji"
               icon={BsFacebook}
