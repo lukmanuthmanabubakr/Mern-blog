@@ -1,6 +1,12 @@
 import { Footer } from "flowbite-react";
 import { NavLink } from "react-router-dom";
-import { BsFacebook } from 'react-icons/bs'
+import {
+  BsFacebook,
+  BsInstagram,
+  BsTwitter,
+  BsLinkedin,
+  BsGithub,
+} from "react-icons/bs";
 
 export default function FooterCom() {
   return (
@@ -76,11 +82,11 @@ export default function FooterCom() {
           />
 
           <div className="">
-            <Footer.Icon href="#" icon={BsFacebook}/>
-            <Footer.Icon href="#" icon={BsFacebook}/>
-            <Footer.Icon href="#" icon={BsFacebook}/>
-            <Footer.Icon href="#" icon={BsFacebook}/>
-            <Footer.Icon href="#" icon={BsFacebook}/>
+            <Footer.Icon href="#" icon={BsFacebook} />
+            <Footer.Icon href="#" icon={BsInstagram} />
+            <Footer.Icon href="#" icon={BsTwitter} />
+            <Footer.Icon href="#" icon={BsLinkedin} />
+            <Footer.Icon href="#" icon={BsGithub} />
           </div>
         </div>
       </div>
