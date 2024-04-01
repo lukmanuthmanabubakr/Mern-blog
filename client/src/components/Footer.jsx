@@ -77,7 +77,10 @@ export default function FooterCom() {
 
           <div className="">
             <Footer.Icon href="#" icon={BsFacebook}/>
-            
+            <Footer.Icon href="#" icon={BsFacebook}/>
+            <Footer.Icon href="#" icon={BsFacebook}/>
+            <Footer.Icon href="#" icon={BsFacebook}/>
+            <Footer.Icon href="#" icon={BsFacebook}/>
           </div>
         </div>
       </div>
