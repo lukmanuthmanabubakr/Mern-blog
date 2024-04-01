@@ -1,5 +1,6 @@
 import { Footer } from "flowbite-react";
 import { NavLink } from "react-router-dom";
+import { BsFacebook } from 'react-icons/bs'
 
 export default function FooterCom() {
   return (
@@ -59,16 +60,8 @@ export default function FooterCom() {
             <div>
               <Footer.Title title="Legal" />
               <Footer.LinkGroup col>
-                <Footer.Link
-                  href="#"
-                >
-                  Privacy Policy
-                </Footer.Link>
-                <Footer.Link
-                  href="#"
-                >
-                  Terms &amp; Conditions
-                </Footer.Link>
+                <Footer.Link href="#">Privacy Policy</Footer.Link>
+                <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
               </Footer.LinkGroup>
             </div>
           </div>
@@ -76,7 +69,15 @@ export default function FooterCom() {
 
         <Footer.Divider />
         <div className="">
-          <Footer.Copyright href="#" by="Legend's blog" year={new Date().getFullYear()}/>
+          <Footer.Copyright
+            href="#"
+            by="Legend's blog"
+            year={new Date().getFullYear()}
+          />
+
+          <div className="">
+            <Footer.Icon href="#" icon={BsFacebook}/>
+          </div>
         </div>
       </div>
     </Footer>
