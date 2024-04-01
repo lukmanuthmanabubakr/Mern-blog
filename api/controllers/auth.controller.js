@@ -13,7 +13,7 @@ export const signup = async (req, res, next) => {
     email === "" ||
     password === ""
   ) {
-    next(errorHandler(400, 'All fields are required'));
+    next(errorHandler(400, "All fields are required"));
 
     // return res.status(400).json({ message: "All fields are required" });
   }
@@ -34,16 +34,15 @@ export const signup = async (req, res, next) => {
   }
 };
 
-
 export const signin = async (req, res, next) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
 
-  if(!username || !password || username === '' || password === '') {
-    next(errorHandler(400, 'All fields are required'))
+  if (!email || !password || email === "" || password === "") {
+    next(errorHandler(400, "All fields are required"));
   }
   try {
-    
+    const validUser = await User.findOne({ email });
   } catch (error) {
-    
+    next(error);
   }
-}
+};
