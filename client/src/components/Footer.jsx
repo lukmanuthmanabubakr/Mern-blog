@@ -82,11 +82,17 @@ export default function FooterCom() {
           />
 
           <div className="">
-            <Footer.Icon href="#" icon={BsFacebook} />
+            <Footer.Icon href="https://www.facebook.com/ola%20dimeji" icon={BsFacebook} />
             <Footer.Icon href="#" icon={BsInstagram} />
-            <Footer.Icon href="#" icon={BsTwitter} />
-            <Footer.Icon href="#" icon={BsLinkedin} />
-            <Footer.Icon href="#" icon={BsGithub} />
+            <Footer.Icon href="https://www.x.com/dimeji_911" icon={BsTwitter} />
+            <Footer.Icon
+              href="https://www.linkedin.com/in/abubakr-lukman-uthman-51156a263/"
+              icon={BsLinkedin}
+            />
+            <Footer.Icon
+              href="https://github.com/lukmanuthmanabubakr"
+              icon={BsGithub}
+            />
           </div>
         </div>
       </div>
