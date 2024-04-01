@@ -81,7 +81,7 @@ export default function FooterCom() {
             year={new Date().getFullYear()}
           />
 
-          <div className="">
+          <div className="flex gap-6">
             <Footer.Icon
               href="https://www.facebook.com/ola%20dimeji"
               icon={BsFacebook}
@@ -92,7 +92,11 @@ export default function FooterCom() {
               icon={BsInstagram}
               target="_blank"
             />
-            <Footer.Icon href="https://www.x.com/dimeji_911" icon={BsTwitter} target="_blank" />
+            <Footer.Icon
+              href="https://www.x.com/dimeji_911"
+              icon={BsTwitter}
+              target="_blank"
+            />
             <Footer.Icon
               href="https://www.linkedin.com/in/abubakr-lukman-uthman-51156a263/"
               icon={BsLinkedin}
