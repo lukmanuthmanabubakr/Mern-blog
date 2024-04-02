@@ -58,6 +58,9 @@ export const signin = async (req, res, next) => {
       },
       process.env.JWT_SECRET
     );
+    res.status(200).cookie('access_token', token, {
+      httpOnly: true
+    }).json(validUser);
   } catch (error) {
     next(error);
   }
