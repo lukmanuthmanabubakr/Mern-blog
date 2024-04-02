@@ -52,9 +52,12 @@ export const signin = async (req, res, next) => {
       next(errorHandler(400, "Invalid Password"));
     }
 
-    const token = jwt.sign({
-      id: validUser._id,
-    });
+    const token = jwt.sign(
+      {
+        id: validUser._id,
+      },
+      process.env.JWT_SECRET
+    );
   } catch (error) {
     next(error);
   }
