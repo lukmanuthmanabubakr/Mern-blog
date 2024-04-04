@@ -16,7 +16,7 @@ export const signup = async (req, res, next) => {
   ) {
     next(errorHandler(400, "All fields are required"));
 
-    // return res.status(400).json({ message: "All fields are required" });
+    // return re0).json({ message: "All fields are required" });
   }
 
   const hashedPassword = bcryptjs.hashSync(password, 10);
