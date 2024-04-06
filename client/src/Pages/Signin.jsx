@@ -2,7 +2,7 @@ import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-export default function SignUp() {
+export default function SignIn() {
   const [formData, setFormData] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -12,14 +12,14 @@ export default function SignUp() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.username || !formData.email || !formData.password) {
+    if (!formData.email || !formData.password) {
       return setErrorMessage("Please fill out all fields");
     }
 
     try {
       setLoading(true);
       setErrorMessage(null);
-      const res = await fetch("/api/auth/signup", {
+      const res = await fetch("/api/auth/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -31,7 +31,7 @@ export default function SignUp() {
 
       setLoading(false);
       if(res.ok) {
-        navigate('/sign-in')
+        navigate('/')
       }
     } catch (error) {
       setErrorMessage(error.message);
@@ -50,7 +50,7 @@ export default function SignUp() {
             Blog
           </NavLink>
           <p className="text-sm mt-5">
-            This is a demo project, You can sign up with ur email and password
+            This is a demo project, You can sign in with ur email and password
             Or with Your Google Account
           </p>
         </div>
@@ -58,7 +58,7 @@ export default function SignUp() {
 
         <div className="flex-1">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-            <div>
+            {/* <div>
               <Label value="Your username" />
               <TextInput
                 type="text"
@@ -66,7 +66,7 @@ export default function SignUp() {
                 id="username"
                 onChange={handleChange}
               />
-            </div>
+            </div> */}
             <div>
               <Label value="Your email" />
               <TextInput
