@@ -55,7 +55,7 @@ export const signin = async (req, res, next) => {
     const token = jwt.sign(
       {
         id: validUser._id,
-      },
+      }, 
       process.env.JWT_SECRET
     );
 
