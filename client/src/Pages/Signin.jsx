@@ -80,7 +80,7 @@ export default function SignIn() {
               <Label value="Your password" />
               <TextInput
                 type="password"
-                placeholder="Password"
+                placeholder="******************"
                 id="password"
                 onChange={handleChange}
               />
@@ -97,14 +97,14 @@ export default function SignIn() {
                   <span className="pl-3">Loading...</span>
                 </>
               ) : (
-                "Sign Up"
+                "Sign In"
               )}
             </Button>
           </form>
 
           <div className="flex gap-2 text-sm mt-5">
-            <span>Have an account?</span>
-            <NavLink to="/sign-in" className="text-blue-500">
+            <span>Dont have an account?</span>
+            <NavLink to="/sign-up" className="text-blue-500">
               Sign Up
             </NavLink>
           </div>
