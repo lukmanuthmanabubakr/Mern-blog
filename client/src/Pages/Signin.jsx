@@ -105,7 +105,7 @@ export default function SignUp() {
           <div className="flex gap-2 text-sm mt-5">
             <span>Have an account?</span>
             <NavLink to="/sign-in" className="text-blue-500">
-              Sign In
+              Sign Up
             </NavLink>
           </div>
           {errorMessage && (
