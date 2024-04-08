@@ -15,7 +15,7 @@ const userSlice = createSlice({
             state.error = null;
         },
         signInSuccess : (state, action) => {
-
+            state
         }
     }
 })
