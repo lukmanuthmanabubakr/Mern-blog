@@ -6,8 +6,9 @@ import { signInStart, signInSuccess,  signInFailure} from '../redux/user/userSli
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [loading, setLoading] = useState(false);
+  // const [errorMessage, setErrorMessage] = useState(null);
+  // const [loading, setLoading] = useState(false);
+  const { loading, error: errorMessage} = useSelector(state => state.user)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -16,7 +17,7 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
-      return setErrorMessage("Please fill out all fields");
+      return dispatch(signInFailure('Please fill out all fields'))
     }
 
     try {
@@ -31,7 +32,7 @@ export default function SignIn() {
         dispatch(signInFailure(data.message));
       }
 
-      setLoading(false);
+      // setLoading(false);
       if(res.ok) {
         dispatch(signInSuccess(data))
         navigate('/')
