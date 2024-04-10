@@ -8,5 +8,4 @@ export const store = configureStore({
 })
 
 
-// // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-
+// // Inferred type: {posts: PostsState, comments: CommentsState, users: Use
