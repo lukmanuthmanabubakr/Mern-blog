@@ -9,4 +9,5 @@ export const store = configureStore({
 
 
 // // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-// export type AppDispatch = typeof store
+// export type AppDisp
+
