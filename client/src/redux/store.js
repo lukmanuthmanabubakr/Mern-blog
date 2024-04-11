@@ -1,11 +1,12 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import userReducer from './user/userSlice'
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import userReducer from "./user/userSlice";
+
+const rootReducer = combineReducers({})
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
   },
-})
-
+});
 
 // // Inferred type: {posts:
