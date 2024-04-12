@@ -11,7 +11,9 @@ export default function OAuth() {
     try {
         const resultsFromGoogle = await signInWithPopup(auth, provider)
 
-        const res = await fetch '/a'
+        const res = await fetch('/api/auth/google', {
+          
+        })
         console.log(resultsFromGoogle);
     } catch (error) {
         console.log(error);
