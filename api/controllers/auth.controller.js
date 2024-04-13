@@ -83,7 +83,7 @@ export const google = async (req, res, next) => {
         httpOnly: true,
       }).json(rest);
     }else {
-      
+      const generatedPassword = Math.random().toString(36)
     }
   } catch (error) {
     next(error);
