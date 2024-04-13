@@ -70,13 +70,15 @@ export const signin = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-};
+}; 
 
 export const google = async (req, res, next) => {
   const { email, name, googlePhotoUrl } = req.body;
   try {
     const user = await User.findOne({ email });
-    if(user)
+    if(user) {
+      
+    }
   } catch (error) {
     next(error);
   }
