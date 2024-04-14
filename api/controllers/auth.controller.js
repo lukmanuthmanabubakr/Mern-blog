@@ -100,6 +100,14 @@ export const google = async (req, res, next) => {
         profilePicture: googlePhotoUrl,
       });
       await newUser.save();
+      const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
+      const { password, ...rest } = newUser._doc;
+      res
+        .status(200)
+        .cookie("access_token", token, {
+          httpOnly: true,
+        })
+        .json(rest);
     }
   } catch (error) {
     next(error);
