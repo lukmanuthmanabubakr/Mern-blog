@@ -2,6 +2,7 @@ import { Button, Navbar, TextInput } from "flowbite-react";
 import { NavLink, useLocation } from "react-router-dom";
 import { RiSearchLine } from "react-icons/ri";
 import { FaMoon } from "react-icons/fa";
+import { useSelector } from 'react-redux'
 
 export default function Header() {
   const path = useLocation().pathname;
