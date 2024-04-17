@@ -1,10 +1,12 @@
 import { useSelector } from "react-redux";
 
-export default function ThemeProvider() {
+export default function ThemeProvider({ children }) {
   const { theme } = useSelector((state) => state.theme);
   return (
-    <div className="dark">
-
+    <div className={theme}>
+      <div className="bg-white text-gray text-gray-700 dark:text-gray-200 dark:bg-[16,23,42]">
+        {children}
+      </div>
     </div>
-  )
+  );
 }
