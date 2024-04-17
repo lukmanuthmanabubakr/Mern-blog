@@ -3,6 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { RiSearchLine } from "react-icons/ri";
 import { FaMoon } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../redux/theme/themeSlice";
 
 export default function Header() {
   const path = useLocation().pathname;
@@ -33,7 +34,12 @@ export default function Header() {
       </Button>
 
       <div className="flex gap-2 md:order-2">
-        <Button className="w-12 h-10 hidden sm:inline" color="gray" pill>
+        <Button
+          className="w-12 h-10 hidden sm:inline"
+          color="gray"
+          pill
+          onClick={() => dispatch(toggleTheme())}
+        >
           <FaMoon />
         </Button>
         {currentUser ? (
