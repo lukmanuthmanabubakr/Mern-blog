@@ -15,7 +15,7 @@ export default function DashSidebar() {
     }
   }, [location.search]);
   return (
-    <Sidebar>
+    <Sidebar className="w-full md:w-56">
       <Sidebar.Items>
         <Sidebar.ItemGroup>
           <NavLink to="/dashboard?tab=profile">
