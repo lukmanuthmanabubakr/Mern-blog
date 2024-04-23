@@ -9,7 +9,7 @@ export default function DashSidebar() {
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const tabFromUrl = urlParams.get("tab");
-    // console.lo
+   
     if (tabFromUrl) {
       setTab(tabFromUrl);
     }
