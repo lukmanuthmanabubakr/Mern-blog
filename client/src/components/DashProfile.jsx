@@ -32,7 +32,7 @@ export default function DashProfile() {
         </Button>
       </form>
       <div className="">
-
+        <span>Delete Account</span>
       </div>
     </div>
   );
