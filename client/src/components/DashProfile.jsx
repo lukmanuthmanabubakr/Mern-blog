@@ -31,7 +31,7 @@ export default function DashProfile() {
           Update
         </Button>
       </form>
-      <div className="">
+      <div className="text-red-500">
         <span>Delete Account</span>
       </div>
     </div>
