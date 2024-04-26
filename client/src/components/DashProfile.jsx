@@ -31,8 +31,9 @@ export default function DashProfile() {
           Update
         </Button>
       </form>
-      <div className="text-red-500">
-        <span>Delete Account</span>
+      <div className="text-red-500 flex justify-between mt-5">
+        <span className="cursor-pointer">Delete Account</span>
+        <span className="cursor-pointer">Sign Out</span>
       </div>
     </div>
   );
