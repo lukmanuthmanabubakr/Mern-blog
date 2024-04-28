@@ -4,6 +4,7 @@ import { useState } from "react";
 export default function DashProfile() {
   const { currentUser } = useSelector((state) => state.user);
   const [imageFile, setImageFile] = useState(null);
+  const [imageFileUrl, setImageFileUrl] = useState(null);
   const handleImageChange = (e) => {
     setImageFile(e.target.files[0])
   };
