@@ -24,6 +24,7 @@ export default function DashProfile() {
           accept="image/*"
           onChange={handleImageChange}
           ref={filePickerRef}
+          hidden
         />
         <div
           className="w-32 h-32 self-center cursor-pointer shadow-md overflow-hidden rounded-full"
