@@ -1,6 +1,9 @@
 import { useSelector } from "react-redux";
 import { Button, TextInput } from "flowbite-react";
 import { useEffect, useRef, useState } from "react";
+import { getStorage } from "firebase/storage";
+import { app } from "../firebase";
+
 export default function DashProfile() {
   const { currentUser } = useSelector((state) => state.user);
   const [imageFile, setImageFile] = useState(null);
@@ -23,8 +26,7 @@ export default function DashProfile() {
   }, [imageFile]);
 
   const uploadImage = async () => {
-
-    // Don't touch 
+    // Don't touch
 
     // service firebase.storage {
     //   match /b/{bucket}/o {
@@ -33,14 +35,15 @@ export default function DashProfile() {
     //       allow write: if
     //       request.resource.size < 2 * 1024 * 1024 &&
     //       request.resource.contentType.matches('images/.*')
-          
+
     //     }
     //   }
     // }
     // console.log('uploading image...');
 
-    const storage
-  }
+    const storage = getStorage(app);
+    const fileName = new Date().getTime() + imageFile.name;
+  };
   return (
     <div className="max-w-lg mx-auto p-3 w-full">
       <h1 className="my-7 text-center font-semibold text-3xl">Profile</h1>
