@@ -1,7 +1,12 @@
 import { useSelector } from "react-redux";
 import { Button, TextInput } from "flowbite-react";
 import { useEffect, useRef, useState } from "react";
-import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "firebase/storage";
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
 import { app } from "../firebase";
 
 export default function DashProfile() {
@@ -31,38 +36,41 @@ export default function DashProfile() {
 
   const uploadImage = async () => {
     // Don't touch
-
     // service firebase.storage {
     //   match /b/{bucket}/o {
     //     match /{allPaths=**} {
     //       allow read;
     //       allow write: if
     //       request.resource.size < 2 * 1024 * 1024 &&
-    //       request.resource.contentType.matches('images/.*')
-
+    //       request.resource.contentType.matches('image/.*')
+          
     //     }
     //   }
     // }
     // console.log('uploading image...');
 
     const storage = getStorage(app);
-    const fileName = new Date().getTime() + imageFile.name;const storageRef = ref(storage, fileName);
+    const fileName = new Date().getTime() + imageFile.name;
+    const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, imageFile);
     uploadTask.on(
       'state_changed',
       (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         setImageFileUploadProgress(progress.toFixed(0));
       },
       (error) => {
-        setImageFileUploadError('Could not upload image, (File must be less than 2MB)')
+        setImageFileUploadError(
+          "Could not upload image, (File must be less than 2MB)"
+        );
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setImageFileUrl(downloadURL);
-        })
+        });
       }
-    )
+    );
   };
   return (
     <div className="max-w-lg mx-auto p-3 w-full">
