@@ -23,7 +23,23 @@ export default function DashProfile() {
   }, [imageFile]);
 
   const uploadImage = async () => {
-    console.log('uploading image...');
+
+    // Don't touch 
+
+    // service firebase.storage {
+    //   match /b/{bucket}/o {
+    //     match /{allPaths=**} {
+    //       allow read;
+    //       allow write: if
+    //       request.resource.size < 2 * 1024 * 1024 &&
+    //       request.resource.contentType.matches('images/.*')
+          
+    //     }
+    //   }
+    // }
+    // console.log('uploading image...');
+
+    const storage
   }
   return (
     <div className="max-w-lg mx-auto p-3 w-full">
