@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Button, TextInput } from "flowbite-react";
+import { Alert, Button, TextInput } from "flowbite-react";
 import { useEffect, useRef, useState } from "react";
 import {
   getDownloadURL,
@@ -43,7 +43,7 @@ export default function DashProfile() {
     //       allow write: if
     //       request.resource.size < 2 * 1024 * 1024 &&
     //       request.resource.contentType.matches('image/.*')
-          
+
     //     }
     //   }
     // }
@@ -54,7 +54,7 @@ export default function DashProfile() {
     const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, imageFile);
     uploadTask.on(
-      'state_changed',
+      "state_changed",
       (snapshot) => {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -93,6 +93,8 @@ export default function DashProfile() {
             className="rounded-full w-full h-full object-cover border-8  border-[lightgray]"
           />
         </div>
+        {imageFileUploadError && <Alert color="failure">{imageFileUploadError}</Alert>}
+
         <TextInput
           type="text"
           id="username"
