@@ -29,8 +29,6 @@ export default function DashProfile() {
     }
   };
 
-  // console.l
-
   useEffect(() => {
     if (imageFile) {
       uploadImage();
