@@ -29,7 +29,7 @@ export default function DashProfile() {
     }
   };
 
-  // console.log(imageFile, ima
+  // console.l
 
   useEffect(() => {
     if (imageFile) {
