@@ -80,7 +80,7 @@ export default function DashProfile() {
       <form className="flex flex-col gap-4">
         <input
           type="file"
-          accept="image/*"
+          accept='image/*'
           onChange={handleImageChange}
           ref={filePickerRef}
           hidden
