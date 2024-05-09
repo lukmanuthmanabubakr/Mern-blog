@@ -19,7 +19,7 @@ export default function DashProfile() {
   const [imageFileUploadProgress, setImageFileUploadProgress] = useState(null);
   const [imageFileUploadError, setImageFileUploadError] = useState(null);
 
-  console.log(imageFileUploadProgress, imageFileUploadError);
+  // console.log(imageFileUploadProgress, imageFileUploadError);
   const filePickerRef = useRef();
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -50,6 +50,7 @@ export default function DashProfile() {
     // }
     // console.log('uploading image...');
 
+    setImageFileUploadError(null);
     const storage = getStorage(app);
     const fileName = new Date().getTime() + imageFile.name;
     const storageRef = ref(storage, fileName);
@@ -66,6 +67,8 @@ export default function DashProfile() {
           "Could not upload image, (File must be less than 2MB)"
         );
         setImageFileUploadProgress(null);
+        setImageFile(null);
+        setImageFileUrl(null);
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
@@ -80,7 +83,7 @@ export default function DashProfile() {
       <form className="flex flex-col gap-4">
         <input
           type="file"
-          accept='image/*'
+          accept="image/*"
           onChange={handleImageChange}
           ref={filePickerRef}
           hidden
@@ -113,7 +116,11 @@ export default function DashProfile() {
           <img
             src={imageFileUrl || currentUser.profilePicture}
             alt="user"
-            className={`rounded-full w-full h-full object-cover border-8  border-[lightgray] ${imageFileUploadProgress && imageFileUploadProgress < 100 && 'opacity-60'}`}
+            className={`rounded-full w-full h-full object-cover border-8  border-[lightgray] ${
+              imageFileUploadProgress &&
+              imageFileUploadProgress < 100 &&
+              "opacity-60"
+            }`}
           />
         </div>
         {imageFileUploadError && (
@@ -128,7 +135,7 @@ export default function DashProfile() {
         />
         <TextInput
           type="email"
-          id="eamil"
+          id="email"
           placeholder="email"
           defaultValue={currentUser.email}
         />
