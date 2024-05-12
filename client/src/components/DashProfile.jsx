@@ -1,5 +1,7 @@
 export default function DashProfile() {
   return (
-    <div>DashProfile</div>
+    <div>
+      DashProfile
+    </div>
   )
 }
