@@ -1,7 +1,10 @@
 export default function DashProfile() {
   return (
     <div>
-      DashProfile
+      <h1>Profile</h1>
+      <form>
+        <img src="" alt="" />
+      </form>
     </div>
   )
 }
