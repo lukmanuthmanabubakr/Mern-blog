@@ -44,7 +44,7 @@ export default function DashProfile() {
     //     }
     //   }
     // }
-    // console.log('uploading image...');
+    // console.log('uploading image
     const storage = getStorage(app);
     const fileName = new Date().getTime() + imageFile.name;
     const storageRef = ref(storage, fileName);
