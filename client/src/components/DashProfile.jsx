@@ -1,6 +1,7 @@
 import { Alert, Button, TextInput } from "flowbite-react";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+
 import {
   getDownloadURL,
   getStorage,
@@ -50,7 +51,7 @@ export default function DashProfile() {
     const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, imageFile);
     uploadTask.on(
-      "state_changed",
+      'state_changed',
       (snapshot) => {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -74,7 +75,7 @@ export default function DashProfile() {
       <form className="flex flex-col gap-4">
         <input
           type="file"
-          accept="image/.*"
+          accept='image/*'
           onChange={handleImageChange}
           ref={filePickerRef}
           hidden
@@ -83,6 +84,9 @@ export default function DashProfile() {
           className="w-32 h-32 self-center cursor-pointer shadow-md overflow-hidden rounded-full"
           onClick={() => filePickerRef.current.click()}
         >
+        { imageFileUploadProgress && (
+          <CircularProgressbar value={imageFileUploadProgress || 0} text={`${imageFileUploadProgress}%`} />
+        ) }
           <img
             src={imageFileUrl || currentUser.profilePicture}
             alt="user"
