@@ -51,7 +51,7 @@ export default function DashProfile() {
     const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, imageFile);
     uploadTask.on(
-      'state_changed',
+      "state_changed",
       (snapshot) => {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -84,16 +84,22 @@ export default function DashProfile() {
           className="w-32 h-32 self-center cursor-pointer shadow-md overflow-hidden rounded-full"
           onClick={() => filePickerRef.current.click()}
         >
-        { imageFileUploadProgress && (
-          <CircularProgressbar value={imageFileUploadProgress || 0} text={`${imageFileUploadProgress}%`} />
-        ) }
+          {imageFileUploadProgress && (
+            <CircularProgressbar
+              value={imageFileUploadProgress || 0}
+              text={`${imageFileUploadProgress}%`}
+              strokeWidth={5}
+            />
+          )}
           <img
             src={imageFileUrl || currentUser.profilePicture}
             alt="user"
             className="rounded-full w-full h-full border-8 object-cover border-[lightgray]"
           />
         </div>
-        {imageFileUploadError && <Alert color="failure">{imageFileUploadError}</Alert>}
+        {imageFileUploadError && (
+          <Alert color="failure">{imageFileUploadError}</Alert>
+        )}
 
         <TextInput
           type="text"
