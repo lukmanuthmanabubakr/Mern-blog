@@ -32,7 +32,6 @@ export default function DashProfile() {
   // };
   // console.log(imageFile, imageFileUrl);
 
-  // 
   
   const handleImageChange = (e) => {
     const file = e.target.files[0];
