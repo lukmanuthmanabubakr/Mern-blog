@@ -29,7 +29,7 @@ export default function DashProfile() {
   //     setImageFileUrl(URL.createObjectURL(file));
   //   }
   // };
-  // console.log(imageFile, imageFileUrl);
+
 
   
   const handleImageChange = (e) => {
