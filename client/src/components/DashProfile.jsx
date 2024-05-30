@@ -90,7 +90,7 @@ export default function DashProfile() {
     //     }
     //   }
     // }
-    // console.log
+    // console.l
     setImageFileUploadError(null)
     const storage = getStorage(app);
     const fileName = new Date().getTime() + imageFile.name;
