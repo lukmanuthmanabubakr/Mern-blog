@@ -60,7 +60,7 @@ export default function DashProfile() {
     }
   }, [imageFile]);
 
-  // //////////////////////////////////////////////////
+  // /////////////////////////////////////////.
 
   // const handleImageChange = (e) => {
   //   const file = e.target.files[0];
