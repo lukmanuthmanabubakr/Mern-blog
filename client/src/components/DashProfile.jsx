@@ -38,7 +38,7 @@ export default function DashProfile() {
       if (file.size > 2 * 1024 * 1024) {
         setImageFileUploadError("File must be less than 2MB");
         setImageFile(null); // Reset image file state
-        setImageFileUrl(null); // Reset image file URL state
+        setImageFileUrl(null); // Reset image file URL
         return;
       }
       if (file.type.includes("mp4")) {
