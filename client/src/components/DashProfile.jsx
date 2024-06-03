@@ -19,19 +19,10 @@ export default function DashProfile() {
   const [imageFileUrl, setImageFileUrl] = useState(null);
   const [imageFileUploadProgress, setImageFileUploadProgress] = useState(null);
   const [imageFileUploadError, setImageFileUploadError] = useState(null);
+  const [formData, setFormData] = useState({});
 
   const filePickerRef = useRef();
 
-  // const handleImageChange = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     setImageFile(file);
-  //     setImageFileUrl(URL.createObjectURL(file));
-  //   }
-  // };
-
-
-  
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -49,10 +40,9 @@ export default function DashProfile() {
       }
       setImageFile(file);
       setImageFileUrl(URL.createObjectURL(file));
-      setImageFileUploadProgress(null); // Reset progress when a new file is selected
+      setImageFileUploadProgress(null);
     }
   };
-  
 
   useEffect(() => {
     if (imageFile) {
@@ -60,70 +50,51 @@ export default function DashProfile() {
     }
   }, [imageFile]);
 
-  // /////////////////////////////////////////.
+  // const uploadImage = async () => {
+  //   setImageFileUploadError(null);
+  //   const storage = getStorage(app);
+  //   const fileName = new Date().getTime() + imageFile.name;
+  //   const storageRef = ref(storage, fileName);
+  //   const uploadTask = uploadBytesResumable(storageRef, imageFile);
 
-  // const handleImageChange = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     if (file.size > 2 * 1024 * 1024) {
-  //       setImageFileUploadError("File must be less than 2MB");
-  //       return;
-  //     }
-  //     if (file.type.includes("mp4")) {
-  //       setImageFileUploadError("MP4 files are not allowed");
-  //       return;
-  //     }
-  //     setImageFile(file);
-  //     setImageFileUrl(URL.createObjectURL(file));
-  //   }
+  //   let progress = 0;
+  //   const interval = setInterval(() => {
+  //     progress = Math.min(progress + Math.random() * 10, 100);
+  //     setImageFileUploadProgress(progress.toFixed(0));
+  //     if (progress >= 100) clearInterval(interval);
+  //   }, 500);
   // };
 
   const uploadImage = async () => {
-    // service firebase.storage {
-    //   match /b/{bucket}/o {
-    //     match /{allPaths=**} {
-    //       allow read;
-    //       allow write: if
-    //       request.resource.size >  2 * 1024 * 1024 &&
-    //       request.resource.contentType.matches('image/.*')
-
-    //     }
-    //   }
-    // }
-    // consol
-    setImageFileUploadError(null)
+    setImageFileUploadError(null);
     const storage = getStorage(app);
     const fileName = new Date().getTime() + imageFile.name;
     const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, imageFile);
 
-    // uploadTask.on(
-    //   "state_changed",
-    //   (snapshot) => {
-    //     const progress =
-    //       (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    //     setImageFileUploadProgress(progress.toFixed(0));
-    //   },
-    //   (error) => {
-    //     setImageFileUploadError(
-    //       "Could not upload image (File must be less than 2MB)"
-    //  setImageFileUploadProgress(null)
-    //     );
-    //   },
-    //   () => {
-    //     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-    //       setImageFileUrl(downloadURL);
-    //     });
-    //   }
-    // );
-
-    let progress = 0;
-    const interval = setInterval(() => {
-      progress = Math.min(progress + Math.random() * 10, 100);
-      setImageFileUploadProgress(progress.toFixed(0));
-      if (progress >= 100) clearInterval(interval);
-    }, 500);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setImageFileUploadProgress(progress.toFixed(0));
+      },
+      (error) => {
+        setImageFileUploadError("Failed to upload image");
+      },
+      () => {
+        // Upload completed successfully, get download URL
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setFormData({ ...formData, profilePicture: downloadURL });
+        });
+      }
+    );
   };
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  console.log(formData);
   return (
     <div className="max-w-lg mx-auto p-3 w-full">
       <h1 className="my-7 text-center font-semibold text-3xl">Profile</h1>
@@ -164,36 +135,47 @@ export default function DashProfile() {
           <img
             src={imageFileUrl || currentUser.profilePicture}
             alt="user"
-            className={`rounded-full w-full h-full border-8 object-cover border-[lightgray] ${imageFileUploadProgress && imageFileUploadProgress < 100 && 'opacity-60'}`}
+            className={`rounded-full w-full h-full border-8 object-cover border-[lightgray] ${
+              imageFileUploadProgress &&
+              imageFileUploadProgress < 100 &&
+              "opacity-60"
+            }`}
           />
         </div>
         {imageFileUploadError && (
           <Alert color="failure">{imageFileUploadError}</Alert>
         )}
-  
+
         <TextInput
           type="text"
           id="username"
           placeholder="username"
           defaultValue={currentUser.username}
+          onChange={handleChange}
         />
         <TextInput
           type="email"
           id="email"
           placeholder="email"
           defaultValue={currentUser.email}
+          onChange={handleChange}
         />
-        <TextInput type="password" id="password" placeholder="password" />
-  
+        <TextInput
+          type="password"
+          id="password"
+          placeholder="password"
+          onChange={handleChange}
+        />
+
         <Button type="submit" gradientDuoTone="purpleToBlue" outline>
           Update
         </Button>
       </form>
-  
+
       <div className="text-red-500 flex justify-between mt-5">
         <span className="cursor-pointer">Delete Account</span>
         <span className="cursor-pointer">Sign Out</span>
       </div>
     </div>
-  )
+  );
 }
