@@ -3,5 +3,6 @@ export const test = (req, res) => {
 }
 
 export const updateUser = async (req, res, next) => {
-    res.json({})
+    // res.json({})
+    console.log(req.user);
 }
