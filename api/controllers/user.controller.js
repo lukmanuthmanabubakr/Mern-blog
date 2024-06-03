@@ -33,6 +33,11 @@ export const updateUser = async (req, res, next) => {
         errorHandler(400, "Username can only contains letters and numbers")
       );
     }
+    try {
+        
+    } catch (error) {
+        next(error)
+    }
    
   }
 };
