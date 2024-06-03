@@ -38,7 +38,7 @@ export default function DashProfile() {
       if (file.size > 2 * 1024 * 1024) {
         setImageFileUploadError("File must be less than 2MB");
         setImageFile(null); // Reset image file state
-        setImageFileUrl(null); // Reset image file URL state
+        setImageFileUrl(null); // Reset image file URL
         return;
       }
       if (file.type.includes("mp4")) {
@@ -60,7 +60,7 @@ export default function DashProfile() {
     }
   }, [imageFile]);
 
-  // //////////////////////////////////////////////////////
+  // /////////////////////////////////////////.
 
   // const handleImageChange = (e) => {
   //   const file = e.target.files[0];
@@ -90,7 +90,7 @@ export default function DashProfile() {
     //     }
     //   }
     // }
-    // console.log
+    // consol
     setImageFileUploadError(null)
     const storage = getStorage(app);
     const fileName = new Date().getTime() + imageFile.name;
