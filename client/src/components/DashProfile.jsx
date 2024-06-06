@@ -32,21 +32,8 @@ export default function DashProfile() {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      if (file.size > 2 * 1024 * 1024) {
-        setImageFileUploadError("File must be less than 2MB");
-        setImageFile(null); // Reset image file state
-        setImageFileUrl(null); // Reset image file URL
-        return;
-      }
-      if (file.type.includes("mp4")) {
-        setImageFileUploadError("MP4 files are not allowed");
-        setImageFile(null); // Reset image file state
-        setImageFileUrl(null); // Reset image file URL state
-        return;
-      }
       setImageFile(file);
       setImageFileUrl(URL.createObjectURL(file));
-      setImageFileUploadProgress(null);
     }
   };
 
@@ -56,42 +43,46 @@ export default function DashProfile() {
     }
   }, [imageFile]);
 
-  // const uploadImage = async () => {
-  //   setImageFileUploadError(null);
-  //   const storage = getStorage(app);
-  //   const fileName = new Date().getTime() + imageFile.name;
-  //   const storageRef = ref(storage, fileName);
-  //   const uploadTask = uploadBytesResumable(storageRef, imageFile);
-
-  //   let progress = 0;
-  //   const interval = setInterval(() => {
-  //     progress = Math.min(progress + Math.random() * 10, 100);
-  //     setImageFileUploadProgress(progress.toFixed(0));
-  //     if (progress >= 100) clearInterval(interval);
-  //   }, 500);
-  // };
 
   const uploadImage = async () => {
+    // service firebase.storage {
+    //   match /b/{bucket}/o {
+    //     match /{allPaths=**} {
+    //       allow read;
+    //       allow write: if
+    //       request.resource.size < 2 * 1024 * 1024 &&
+    //       request.resource.contentType.matches('image/.*')
+    //     }
+    //   }
+    // }
+    setImageFileUploading(true);
     setImageFileUploadError(null);
     const storage = getStorage(app);
     const fileName = new Date().getTime() + imageFile.name;
     const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, imageFile);
-
     uploadTask.on(
-      "state_changed",
+      'state_changed',
       (snapshot) => {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
         setImageFileUploadProgress(progress.toFixed(0));
       },
       (error) => {
-        setImageFileUploadError("Failed to upload image");
+        setImageFileUploadError(
+          'Could not upload image (File must be less than 2MB)'
+        );
+        setImageFileUploadProgress(null);
+        setImageFile(null);
+        setImageFileUrl(null);
+        setImageFileUploading(false);
       },
       () => {
-        // Upload completed successfully, get download URL
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setImageFileUrl(downloadURL);
           setFormData({ ...formData, profilePicture: downloadURL });
+          setImageFileUploading(false);
         });
       }
     );
@@ -109,8 +100,10 @@ export default function DashProfile() {
     try {
       dispatch(updateStart());
       const res = await fetch(`/api/user/update/${currentUser._id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(formData),
       });
       const data = await res.json();
@@ -139,16 +132,16 @@ export default function DashProfile() {
           onClick={() => filePickerRef.current.click()}
         >
           {/* Conditionally render the CircularProgressbar */}
-          {!imageFileUploadError && imageFileUploadProgress && (
+          {imageFileUploadProgress && (
             <CircularProgressbar
               value={imageFileUploadProgress || 0}
               text={`${imageFileUploadProgress}%`}
               strokeWidth={5}
               styles={{
                 root: {
-                  width: "100%",
-                  height: "100%",
-                  position: "absolute",
+                  width: '100%',
+                  height: '100%',
+                  position: 'absolute',
                   top: 0,
                   left: 0,
                 },
@@ -162,11 +155,11 @@ export default function DashProfile() {
           )}
           <img
             src={imageFileUrl || currentUser.profilePicture}
-            alt="user"
-            className={`rounded-full w-full h-full border-8 object-cover border-[lightgray] ${
+            alt='user'
+            className={`rounded-full w-full h-full object-cover border-8 border-[lightgray] ${
               imageFileUploadProgress &&
               imageFileUploadProgress < 100 &&
-              "opacity-60"
+              'opacity-60'
             }`}
           />
         </div>
