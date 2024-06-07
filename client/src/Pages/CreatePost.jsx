@@ -1,5 +1,7 @@
 export default function CreatePost() {
   return (
-    <div>CreatePost</div>
+    <div className='p-3 max-w-3xl mx-auto'>
+
+    </div>
   )
 }
