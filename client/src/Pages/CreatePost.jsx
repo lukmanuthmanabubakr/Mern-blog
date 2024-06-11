@@ -18,7 +18,9 @@ export default function CreatePost() {
   const [imageUploadProgress, setImageUploadProgress] = useState(null);
   const [imageUploadError, setImageUploadError] = useState(null);
   const [formData, setFormData] = useState({});
+  console.log(formData)
   const [publishError, setPublishError] = useState(null);
+
 
   const navigate = useNavigate();
 
@@ -73,7 +75,6 @@ export default function CreatePost() {
         setPublishError(data.message);
         return;
       }
-
       if (res.ok) {
         setPublishError(null);
         navigate(`/post/${data.slug}`);
