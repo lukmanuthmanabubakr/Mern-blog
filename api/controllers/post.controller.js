@@ -2,7 +2,6 @@ import Post from '../models/post.model.js';
 import { errorHandler } from '../utils/error.js';
 
 export const create = async (req, res, next) => {
-    // console.log(req.body);
   if (!req.user.isAdmin) {
     return next(errorHandler(403, 'You are not allowed to create a post'));
   }
@@ -83,7 +82,6 @@ export const deletepost = async (req, res, next) => {
     next(error);
   }
 };
-
 
 export const updatepost = async (req, res, next) => {
   if (!req.user.isAdmin || req.user.id !== req.params.userId) {
