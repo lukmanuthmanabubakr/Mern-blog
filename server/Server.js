@@ -23,8 +23,23 @@ const __dirname = path.resolve();
 
 const app = express();
 
+//MiddleWares
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://shaft-coin.vercel.app"],
+    credentials: true,
+  })
+);
+
+app.use(session({
+  secret: '(eehd7#$%^ndhd',
+  resave: false,
+  saveUninitialized: true,
+}));
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000!');
@@ -37,8 +52,8 @@ app.use('/api/comment', commentRoutes);
 
 app.use(express.static(path.join(__dirname, '/client/dist')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+app.get("/", (req, res) => {
+  res.send("Home Page");
 });
 
 app.use((err, req, res, next) => {
